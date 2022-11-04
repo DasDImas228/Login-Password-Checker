@@ -1,20 +1,26 @@
 const login = "Vasya_Pupkin_Zalupkin";
-const password = "Qqqqwqwqw";
+const password = "Qqqq2wqwqw";
 table = new Map();
 
 class Checker{
+    // Checking login length
     checkLogin(login){return login.length >= 5;}
     
+    // Checking password
     checkPassword(password){
-        let firstProverka = false;
-        let secondProverka = false;
+        const length = password.length >=5;
+        let upperLetter = false;
+        let number = false;
         
-        for(const i of password){
-            if(Number(i))firstProverka = true;
+        //iterate over each character in the password
+        for(const symbol of password){
+            // has password any numbers
+            if(Number(symbol)) number = true;
             
-            else if(i == i.toUpperCase()) secondProverka = true;
+            // has password any upper letters
+            else if(symbol == symbol.toUpperCase()) upperLetter = true;
         }
-        return (password.length >=5 && firstProverka && secondProverka);
+        return length * upperLetter * number;
     }
 }
 
@@ -22,5 +28,4 @@ console.log(login + " == " + new Checker().checkLogin(login));
 console.log(password + " == "+ new Checker().checkPassword(password));
 
 if (new Checker().checkLogin(login) * new Checker().checkPassword(password)) table.set(login, password);
-
 console.log(table);
