@@ -1,10 +1,10 @@
-login = 'nazivay_menya_korol'
-password = 'Dima4'
+login = 'nazivay_menya_korol';
+password = 'Dima4';
 let data = new Map();
 
 String.prototype.valid_login = function() {
   if (this.length > 4){
-    return this
+    return this;
   }
 
   else{
@@ -34,8 +34,8 @@ String.prototype.valid_password = function() {
   }
 };
 
-valid_login = login.valid_login()
-valid_pas = password.valid_password()
+valid_login = login.valid_login();
+valid_pas = password.valid_password();
 
 if (valid_login != false && valid_pas != false){
   data.set('login', valid_login);
